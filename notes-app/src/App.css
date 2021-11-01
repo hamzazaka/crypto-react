@@ -5,11 +5,38 @@
   margin-left: auto;
   padding-right: 15px;
   padding-left: 15px;
+  margin-top: 20px;
 }
 .notes-list{
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(auto-fit,minmax(250px, 1fr));
+}
+
+.note.new{
+    background-color: #67d7cc;
+
+}
+textarea{
+  border: none;
+  resize: none;
+  background-color: #67d7cc;
+
+}
+textarea:focus{
+  outline: none;
+}
+
+.save{
+  background-color: #e1e1e1;
+  border: none;
+  border-radius: 15px;
+  padding: 10px;
+  cursor: pointer;
+
+}
+.save:hover{
+  background-color: #ededed;
 }
 
 .note{
@@ -22,6 +49,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin: 10px;
 }
 .note-footer{
   display: flex;

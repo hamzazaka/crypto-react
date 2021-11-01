@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {nanoid} from 'nanoid';
 import './App.css';
 import NotesList from './components/NotesList';
@@ -14,25 +14,22 @@ function App() {
     text:'this is my first note',
     date: '20/04/2021',
     },
-    {
-    id:nanoid(),
-    text:'this is my second note',
-    date: '20/04/2021',
-    },
-    {
-    id:nanoid(),
-    text:'this is my third note',
-    date: '20/04/2021',
-    },
-    {
-    id:nanoid(),
-    text:'this is my fourth note',
-    date: '20/04/2021',
-    }
+   
 ]);
 
 const [searchText,setSearchText]=useState('');
 const[darkmode,setDarkmode]=useState(false);
+
+
+useEffect(()=>{
+  const savedNotes=JSON.parse(localStorage.getItem('react-notes-app-data'))
+  if(savedNotes) setNotes(savedNotes)
+},[])
+
+
+useEffect(()=>{
+  localStorage.setItem('react-notes-app-data',JSON.stringify(notes))
+},[notes])
 
 const addNote = (text) => {
   const date=new Date().toLocaleString()+' ';

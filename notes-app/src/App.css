@@ -56,4 +56,10 @@ textarea:focus{
   display: flex;
   justify-content: space-between;
 }
+.delete-icon{
+  cursor: pointer;
+}
+.delete-icon:hover{
+  color: red;
+}
 

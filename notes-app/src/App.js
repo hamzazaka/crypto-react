@@ -4,6 +4,7 @@ import {nanoid} from 'nanoid';
 import './App.css';
 import NotesList from './components/NotesList';
 import Search from './components/Search';
+import Header from './components/Header';
 
 function App() {
 
@@ -52,6 +53,7 @@ const deleteNote = (id) => {
 
   return (
     <div className="container">
+      <Header/>
       <Search handleSearchNote={setSearchText}/>
       <NotesList notes={notes.filter((notes)=>notes.text.toLowerCase().includes(searchText))} handleAddNote={addNote} handleDeleteNote={deleteNote}/>
     </div>

@@ -10,35 +10,45 @@ function App() {
     {
     id:nanoid(),
     text:'this is my first note',
-    date: new Date().toLocaleString() + '',
+    date: '20/04/2021',
     },
     {
     id:nanoid(),
     text:'this is my second note',
-    date: new Date().toLocaleString() + '',
+    date: '20/04/2021',
     },
     {
     id:nanoid(),
     text:'this is my third note',
-    date: new Date().toLocaleString() + '',
+    date: '20/04/2021',
     },
     {
     id:nanoid(),
     text:'this is my fourth note',
-    date: new Date().toLocaleString() + '',
+    date: '20/04/2021',
     }
 ]);
 
 const addNote = (text) => {
-  console.log(text);
+  const date=new Date().toLocaleString()+' ';
+  const newNote = {
+    id: nanoid(),
+    text: text,
+    date: date
+  }
+  const newNotes = [...notes, newNote];
+  setNotes(newNotes);
 }
 
-console.log(notes);
+const deleteNote = (id) => {
+ const newNotes= notes.filter(note=>note.id!==id);
+ setNotes(newNotes);
+}
 
 
   return (
     <div className="container">
-      <NotesList notes={notes} handleAddNote={addNote}/>
+      <NotesList notes={notes} handleAddNote={addNote} handleDeleteNote={deleteNote}/>
     </div>
   );
 }

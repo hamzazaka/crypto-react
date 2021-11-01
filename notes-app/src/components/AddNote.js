@@ -3,14 +3,21 @@ import React from 'react'
 
 export default function AddNote({handleAddNote}) {
     const [note, setNote] = useState('');
-    // console.log(note);
+    const characterLimit=200;
+
+
     const handleChange = (e) => {
+        if(characterLimit-e.target.value.length>=0){
         setNote(e.target.value);
+        }
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        handleAddNote(note);
+        if(note.trim().length > 0) {
+            e.preventDefault();
+            handleAddNote(note);
+            setNote('');
+        }
     }
     return (
         <div className='note new'>
@@ -20,8 +27,7 @@ export default function AddNote({handleAddNote}) {
             onChange={handleChange}>
             </textarea>
                 <div className="note-footer">
-                    <small>200 remaing</small>
-                    {/* <p>{note}</p> */}
+                    <small>{characterLimit-note.length} Remaining</small>
                     <button onClick={handleSubmit} className='save'>Save</button>
                 </div>
         </div>

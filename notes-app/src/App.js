@@ -3,6 +3,7 @@ import { useState } from 'react';
 import {nanoid} from 'nanoid';
 import './App.css';
 import NotesList from './components/NotesList';
+import Search from './components/Search';
 
 function App() {
 
@@ -46,8 +47,10 @@ const deleteNote = (id) => {
 }
 
 
+
   return (
     <div className="container">
+      <Search/>
       <NotesList notes={notes} handleAddNote={addNote} handleDeleteNote={deleteNote}/>
     </div>
   );

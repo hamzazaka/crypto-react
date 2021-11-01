@@ -21,6 +21,11 @@ function App() {
     id:nanoid(),
     text:'this is my third note',
     date: new Date().toLocaleString() + '',
+    },
+    {
+    id:nanoid(),
+    text:'this is my fourth note',
+    date: new Date().toLocaleString() + '',
     }
 ]);
 

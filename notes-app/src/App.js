@@ -32,6 +32,7 @@ function App() {
 ]);
 
 const [searchText,setSearchText]=useState('');
+const[darkmode,setDarkmode]=useState(false);
 
 const addNote = (text) => {
   const date=new Date().toLocaleString()+' ';
@@ -52,10 +53,12 @@ const deleteNote = (id) => {
 
 
   return (
+    <div className={`${darkmode && `darkmode`}`}>
     <div className="container">
-      <Header/>
+      <Header handleToggleDarkMode={setDarkmode}/>
       <Search handleSearchNote={setSearchText}/>
       <NotesList notes={notes.filter((notes)=>notes.text.toLowerCase().includes(searchText))} handleAddNote={addNote} handleDeleteNote={deleteNote}/>
+    </div>
     </div>
   );
 }

@@ -24,9 +24,19 @@ function App() {
     },
   ]);
 
+  const handleSaveclick=(text)=>{
+      const date=new Date().toLocaleDateString();
+      const newNote={
+        text:text,
+        date:date
+      }
+      const newNotes=[...notes,newNote]
+      setNotes(newNotes)
+    }
+
   return (
     <div className="container">
-      <NotesList notes={notes}/>
+      <NotesList handleSaveclick={handleSaveclick} notes={notes}/>
     </div>
   );
 }

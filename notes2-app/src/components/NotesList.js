@@ -1,5 +1,4 @@
 import React from 'react'
-import { MdDelete } from 'react-icons/md';
 import AddNote from './AddNote';
 import Note from './Note';
 

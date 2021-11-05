@@ -31,14 +31,14 @@ function App() {
   const[darkmode,setdarkmode]=useState(false)
 
   useEffect(()=>{
-    const savedNotes=JSON.parse(localStorage.getItem('hello-react'))
+    const savedNotes=JSON.parse(localStorage.getItem('react-notes-app-data'))
     if(savedNotes){
       setNotes(savedNotes)
     }
   },[])
 
   useEffect(()=>{
-    localStorage.setItem('hello-react',JSON.stringify(notes))
+    localStorage.setItem('react-notes-app-data',JSON.stringify(notes))
   },[notes])
 
 
@@ -47,6 +47,7 @@ function App() {
   const handleSaveclick=(text)=>{
       const date=new Date().toLocaleDateString();
       const newNote={
+        id:nanoid(),
         text:text,
         date:date
       }

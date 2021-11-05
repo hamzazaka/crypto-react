@@ -25,6 +25,8 @@ function App() {
     },
   ]);
 
+  const[searchText,setSearchText]=useState('')
+
   const handleSaveclick=(text)=>{
       const date=new Date().toLocaleDateString();
       const newNote={
@@ -42,9 +44,9 @@ function App() {
 
   return (
     <div className="container">
-      <Search/>
+      <Search handleSearchNote={setSearchText}/>
       <NotesList
-      handleDeleteNote={deleteNote} handleSaveclick={handleSaveclick} notes={notes}/>
+      handleDeleteNote={deleteNote} handleSaveclick={handleSaveclick} notes={notes.filter((note)=>note.text.toLowerCase().includes(searchText))}/>
     </div>
   );
 }

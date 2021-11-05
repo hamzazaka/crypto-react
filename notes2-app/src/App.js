@@ -3,6 +3,7 @@ import './App.css';
 import NotesList from './components/NotesList';
 import { useState } from 'react';
 import {nanoid} from 'nanoid'
+import Search from './components/Search';
 
 function App() {
 
@@ -41,6 +42,7 @@ function App() {
 
   return (
     <div className="container">
+      <Search/>
       <NotesList
       handleDeleteNote={deleteNote} handleSaveclick={handleSaveclick} notes={notes}/>
     </div>

@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import NotesList from './components/NotesList';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {nanoid} from 'nanoid'
 import Search from './components/Search';
 import Header from './components/Header';
@@ -29,6 +29,20 @@ function App() {
   const[searchText,setSearchText]=useState('');
 
   const[darkmode,setdarkmode]=useState(false)
+
+  useEffect(()=>{
+    const savedNotes=JSON.parse(localStorage.getItem('hello-react'))
+    if(savedNotes){
+      setNotes(savedNotes)
+    }
+  },[])
+
+  useEffect(()=>{
+    localStorage.setItem('hello-react',JSON.stringify(notes))
+  },[notes])
+
+
+
 
   const handleSaveclick=(text)=>{
       const date=new Date().toLocaleDateString();

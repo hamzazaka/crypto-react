@@ -3,6 +3,7 @@
   background-color: #fef68a;
   border-radius: 10px;
   padding: 1rem;
+  max-width: 270px;
   min-height: 170px;
   display: flex;
   flex-direction: column;
@@ -53,4 +54,9 @@
  .note-button:hover{
    background-color: rgb(238, 236, 236);
    cursor: pointer;
+ }
+
+ .delete-icon:hover{
+    cursor: pointer;
+    color: red;
  }

@@ -1,24 +1,15 @@
 
 import { useState } from 'react';
 import './App.css';
-import Button from './components/Button';
+import ContactCard from './components/ContactCard';
 
-function App({handleClickButton,helloname}) {
-  let title='hello ia ma hamza'
-
-  const [name,setName]=useState(title);
-
-
-  const handleClick=()=>{
-    setName('hello i am changed')
-  }
+function App() {
   
   return (
-    <div className="App">
-     
-      <h1>{name}</h1>
-      <button onClick={()=>handleClick()}>click me</button>
-      <Button helloname={title} handleClickButton={handleClick}/>
+    <div className="">
+        <ContactCard name='hamza' email='hamza@gmail.com' age='22'/>
+        <ContactCard name='john' email='john@gmail.com' age='42'/>
+        <ContactCard name='adrain' email='adrain@gmail.com' age='32'/>
     </div>
   );
 }

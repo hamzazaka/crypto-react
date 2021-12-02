@@ -42,8 +42,6 @@ function App() {
   },[notes])
 
 
-
-
   const handleSaveclick=(text)=>{
       const date=new Date().toLocaleDateString();
       const newNote={

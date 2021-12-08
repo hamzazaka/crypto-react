@@ -1,6 +1,7 @@
 
 import { useState,useEffect} from 'react';
 import './App.css';
+import FilterPeople from './components/FilterPeople';
 
 function App() {
       const [page, setPage] = useState(1)
@@ -21,18 +22,22 @@ function App() {
        }
         
        }}
-       
-       console.log(people.filter(a=>a.name.toLowerCase().includes('j') && a.eye_color==='black'))
 
+       console.log(people.filter(a=>a.name.toLowerCase().includes('j') && a.eye_color==='blue'))
 
     useEffect(() => {
         getDataforPeople()
     }, [page]);
 
     return (
+
     <div>
-          {isPending && <h1>Loading Data....</h1>}
-      <ul>
+
+          
+          <FilterPeople isPending={isPending} people={people.filter(a=>a.name.toLowerCase().includes('j') && a.eye_color==='blue')}/>
+      <ul className='allpeople app'>
+        <h1>All of the People in Swapi Api</h1>
+        {isPending && <h1>Loading Data....</h1>}
          {people &&people.map((person, index) =>
           <li key={index}>
                    {person.name}

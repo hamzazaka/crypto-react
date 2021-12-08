@@ -2,3 +2,14 @@
 .app{
    text-align: center;
 }
+.allpeople{
+  margin-top: 100px;
+
+}
+li{
+  list-style: none;
+  font-size: 23px;
+}
+span{
+  color: aqua;
+}

@@ -1,32 +1,47 @@
 
-import { useState } from 'react';
+import { useState,useEffect} from 'react';
 import './App.css';
-import ContactCard from './components/ContactCard';
-
-const employee=[
-  {
-    name:"Hamza",
-    city:'DC'
-  },
-  {
-    name:"raj",
-    city:'VA'
-  },
-  {
-    name:"srk",
-    city:'harrisburg'
-  },
-]
 
 function App() {
-  const arr1=[1,2,3,4];
-  const arr2=[2,3,4,5];
-  const arr3=[...arr1,...arr2]
-  console.log(arr3)
+      const [page, setPage] = useState(1)
+    const [people, setPeople] = useState([]);
+     const [isPending, setisPending] = useState(true);
+    const [gotEveryone, setGotEveryone] = useState(false)
+    const [error, setError] = useState(null);
 
-  return (
-   <h1>hello world</h1>
-  );
+    const getDataforPeople= async()=>{
+       if(!gotEveryone&& !error){
+       const response =await fetch(`https://swapi.dev/api/people/?page=${page}`);
+       if(response.status===404) setGotEveryone(true);
+       const data=await response.json()
+       if(data.results!==undefined){
+       setPeople(people.concat(data.results));
+        setPage(page + 1);
+        setisPending(false)
+       }
+        
+       }}
+       
+       console.log(people.filter(a=>a.name.toLowerCase().includes('j') && a.eye_color==='black'))
+
+
+    useEffect(() => {
+        getDataforPeople()
+    }, [page]);
+
+    return (
+    <div>
+          {isPending && <h1>Loading Data....</h1>}
+      <ul>
+         {people &&people.map((person, index) =>
+          <li key={index}>
+                   {person.name}
+           </li>
+                )}
+      </ul>
+    </div>
+    )
+
 }
 
 export default App;

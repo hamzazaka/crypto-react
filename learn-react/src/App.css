@@ -1,21 +1,4 @@
 
-.contact-card{
-  margin-top: 20px;
-  margin-left: 20px;
-  padding: 8px;
-  display: flex;
-  background-color: rgb(68, 68, 216);
-  max-width: 470px;
-  border-radius: 10px;
-  box-shadow: 2px 0px 8px 0px rgba(0,0,0,0.75);
--webkit-box-shadow: 2px 0px 8px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 2px 0px 8px 0px rgba(0,0,0,0.75);
-}
-
-.contact-card p, .contact-card button{
-  margin-left: 20px;
-}
-.contact-card button{
-  border-radius: 5px;
-  padding: 5px;
+.app{
+   text-align: center;
 }
